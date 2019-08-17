@@ -10,10 +10,12 @@ Vagrant.configure("2") do |config|
   # config.vm.network "private_network", ip: "192.168.33.10"
 
 # CS Lab Permissions
-config.vm.synced_folder ".", "/vagrant", owner: "vagrant", group: "vagrant",   mount_options: ["dmode=775,fmode=777"]
+config.vm.synced_folder ".", "/vagrant", owner: "vagrant", group: "vagrant",   mount_options: ["dmode=775,fmode=777"]
+
+
   config.vm.provision "shell", inline: <<-SHELL
     apt-get update
-    apt-get install -y apache2
+    apt-get install -y apache2 php libapache2-mod-php
 
     # Change VM's webserver's configuration to use shared folder.
     # (Look inside test-website.conf for specifics.)
