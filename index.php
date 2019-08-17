@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
 <html>
-<head><title>Database test page</title>
+<head><title>Stained Glass Windows</title>
 <style>
 th { text-align: left; }
 
@@ -16,12 +16,12 @@ th, td {
 </head>
 
 <body>
-<h1>Database test page</h1>
+<h1>Stained Glass Windows</h1>
 
-<p>Showing contents of papers table:</p>
+<p>We offer the following stained glass windows:</p>
 
 <table border="1">
-<tr><th>Paper code</th><th>Paper name</th></tr>
+<tr><th>Window Code</th><th>Window Name</th></tr>
 
 <?php
  
@@ -34,10 +34,10 @@ $pdo_dsn = "mysql:host=$db_host;dbname=$db_name";
 
 $pdo = new PDO($pdo_dsn, $db_user, $db_passwd);
 
-$q = $pdo->query("SELECT * FROM papers");
+$q = $pdo->query("SELECT * FROM stainedwindows");
 
 while($row = $q->fetch()){
-  echo "<tr><td>".$row["code"]."</td><td>".$row["name"]."</td></tr>\n";
+  echo "<tr><td>".$row["id"]."</td><td>".$row["name"]."</td></tr>\n";
 }
 
 ?>
