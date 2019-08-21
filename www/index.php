@@ -67,13 +67,13 @@ $q = $pdo->query("SELECT * FROM stainedwindows");
 
 <?php
     if ($selected_val == '1'){
-        echo "<a href='astrological.php'>Astrological</a>";
+	      echo "<a href='astrological.php'>Astrological</a>";
     }
     if ($selected_val == '2'){
         echo "<a href='coloured_tree.php'>Coloured Tree</a>";
     }
     if ($selected_val == '3'){
-        echo "<a href='gothic.php'>Gothic</a>";
+        echo "<a href='http://127.0.0.1:8081/gothic.php'>Gothic</a>";
     }
     if ($selected_val == '4'){
         echo "<a href='red_plant.php'>Red Plant</a>";
@@ -83,3 +83,4 @@ $q = $pdo->query("SELECT * FROM stainedwindows");
     }
     ?></body>
 </html>
+
