@@ -73,7 +73,7 @@ $q = $pdo->query("SELECT * FROM stainedwindows");
         echo "<a href='coloured_tree.php'>Coloured Tree</a>";
     }
     if ($selected_val == '3'){
-        echo "<a href='http://127.0.0.1:8081/pages/gothic.php'>Gothic</a>";
+        echo "<a href='http://127.0.0.1:8081/gothic.php'>Gothic</a>";
     }
     if ($selected_val == '4'){
         echo "<a href='red_plant.php'>Red Plant</a>";
