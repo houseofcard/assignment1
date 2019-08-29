@@ -29,7 +29,7 @@ $pdo = new PDO($pdo_dsn, $db_user, $db_passwd);
 <p>This the order page for the Red Plant Stained Glass Windows.<p>
 
 <?php
-echo "<img src='images/red_plant.jpg'>";
+   echo "<figure class='images'><img src='images/red_plant.jpg' Width= '200' Height='400' alt='Red Plant Window'></figure>"
 ?>
 
 <br>

@@ -29,7 +29,7 @@ $pdo = new PDO($pdo_dsn, $db_user, $db_passwd);
 <p>This the order page for the Coloured Tree Stained Glass Windows.<p>
 
 <?php
-echo "<figure class='images'><img src='images/coloured_tree.jpg' Width= '200' Height='400' alt='Gothic Window'></figure>";
+echo "<figure class='images'><img src='images/coloured_tree.jpg' Width= '200' Height='400' alt='Coloured Tree Window'></figure>";
 ?>
 
 <br>
