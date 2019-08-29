@@ -1,18 +1,10 @@
 <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
 <html>
-<head><title>Stained Glass Windows</title>
-<style>
-th { text-align: left; }
-
-table, th, td {
-  border: 2px solid grey;
-  border-collapse: collapse;
-}
-
-th, td {
-  padding: 0.2em;
-}
-</style>
+<head>
+<title>Stained Glass Windows</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
 <?php
 $db_host   = '192.168.2.12';
 $db_name   = 'fvision';
@@ -21,9 +13,7 @@ $db_passwd = 'insecure_db_pw';
 $pdo_dsn = "mysql:host=$db_host;dbname=$db_name";
 $pdo = new PDO($pdo_dsn, $db_user, $db_passwd);
 ?>
-</head>
 
-<body>
 <h1>Stained Glass Windows</h1>
 
 <p>We offer the following stained glass windows:</p>
@@ -41,27 +31,27 @@ while($row = $q->fetch()){
 ?>
 </table>
 
-<p>Select Stained Glass Window</p>
+<h2>Select A Stained Glass Window</h2>
 
 <form action="#" method="post">
 <select name="windows">
 <?php
 $q = $pdo->query("SELECT * FROM stainedwindows");
     
-    while($row = $q->fetch()){
-        echo "<option value = ".$row["id"].">".$row["name"]."</option>\n";
-    }
-    ?>
+while($row = $q->fetch()){
+     echo "<option value = ".$row["id"].">".$row["name"]."</option>\n";
+}
+?>
 </select>
-<input type="submit" name="submit" value="Get Selected Value"/>
+<input type="submit" name="submit" value="Create Link"/>
 </form>
 <?php
-    if(isset($_POST['submit'])){
-        $selected_val = $_POST['windows'];  // Storing Selected Value In Variable
-        echo "You have selected :" .$selected_val;  // Displaying Selected Value
-    }
-    ?>
-<br>
+if(isset($_POST['submit'])){
+    $selected_val = $_POST['windows'];  // Storing Selected Value In Variable
+        
+}
+?>
+<p>You have selected: </p>
 
 <?php
     if ($selected_val == '1'){
@@ -79,6 +69,8 @@ $q = $pdo->query("SELECT * FROM stainedwindows");
     if ($selected_val == '5'){
   echo "<a href='http://127.0.0.1:8081/religious.php'>Religious</a>";
     }
-    ?></body>
+  ?>
+<p>Click the link above</p>
+</body>
 </html>
 
