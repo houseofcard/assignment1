@@ -9,24 +9,31 @@ $_SESSION["id"] = 2;
 $id = $_SESSION["id"]; 
 ?>
 <title>Coloured Tree</title>
+<link rel="stylesheet" href="style_pages.css">
 </head>
 <body>
 <?php
 // Connect page to the database
-  $db_host   = '192.168.2.12';
-  $db_name   = 'fvision';
-  $db_user   = 'webuser';
-  $db_passwd = 'insecure_db_pw';
-  $pdo_dsn = "mysql:host=$db_host;dbname=$db_name";
-  $pdo = new PDO($pdo_dsn, $db_user, $db_passwd);
+$db_host   = '192.168.2.12';
+$db_name   = 'fvision';
+$db_user   = 'webuser';
+$db_passwd = 'insecure_db_pw';
+$pdo_dsn = "mysql:host=$db_host;dbname=$db_name";
+$pdo = new PDO($pdo_dsn, $db_user, $db_passwd);
 ?>
+
+<h1>Stained Glass Windows</h1>
+
+<h2>Coloured Tree</h2>
 
 <p>This the order page for the Coloured Tree Stained Glass Windows.<p>
 
 <?php
-echo "<img src='images/coloured_tree.jpg'>";
+echo "<figure class='images'><img src='images/coloured_tree.jpg' Width= '200' Height='400' alt='Gothic Window'></figure>";
 ?>
+
 <br>
+<p>Below is a table of available sizes, the price for each size and the current stock available.</p>
 
 <!-- Table for Available Sizes Gothic Windows-->
 <table border="1">
@@ -45,7 +52,7 @@ while($row = $q->fetch()){
 
 <br>
 <!-- Select Size Options Box -->
-<p>Select Size</p>
+<p>Select a Size</p>
 
 <form action="quantity.php" method="post">
 <select name="size">
@@ -60,7 +67,7 @@ while($row = $q->fetch()){
 
 ?>
 </select>
-<input type="submit" name="submit" value="Size Selected"/>
+<input type="submit" name="submit" value="Select a Size"/>
 </form>
 
 </body>

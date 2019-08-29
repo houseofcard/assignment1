@@ -10,19 +10,26 @@ $selected_quantity = $_POST['quantity'];
 ?>
 
 <title>Order</title>
+<link rel="stylesheet" href="style_pages.css">
 </head>
 <body>
 <?php
 // Connect page to the database
-  $db_host   = '192.168.2.12';
-  $db_name   = 'fvision';
-  $db_user   = 'webuser';
-  $db_passwd = 'insecure_db_pw';
-  $pdo_dsn = "mysql:host=$db_host;dbname=$db_name";
-  $pdo = new PDO($pdo_dsn, $db_user, $db_passwd);
+$db_host   = '192.168.2.12';
+$db_name   = 'fvision';
+$db_user   = 'webuser';
+$db_passwd = 'insecure_db_pw';
+$pdo_dsn = "mysql:host=$db_host;dbname=$db_name";
+$pdo = new PDO($pdo_dsn, $db_user, $db_passwd);
 ?>
 
-<p>This is the page to show the database has to changed to reflect the reduction in stock available after thre customer order.</p>
+<h1>Stained Glass Windows</h1>
+
+<h2>Order</h2>
+
+<p>This is the page which shows the adjusted database, reflecting the reduction in stock available after the customer order.</p>
+
+<h3>Adjusted Database</h3>
 
 <?php
 // retrieve stock in database before order

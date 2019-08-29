@@ -12,6 +12,7 @@ $_SESSION["size"] = $selected_size;
 ?>
 
 <title>Quantity</title>
+<link rel="stylesheet" href="style_pages.css">
 </head>
 <body>
 <?php
@@ -24,7 +25,11 @@ $pdo_dsn = "mysql:host=$db_host;dbname=$db_name";
 $pdo = new PDO($pdo_dsn, $db_user, $db_passwd);
 ?>
 
-<p>This is the page where you, the customer, chooses the quantity of your chosen window.</p>
+<h1>Stained Glass Windows</h1>
+
+<h2>Quantity</h2>
+
+<p>This is the page where you, the customer, choose the how many windows of the selected type you wish to order.</p>
 
 <?php
 //Details of the customer order so far
@@ -37,9 +42,10 @@ while($row = $q->fetch()){
 	echo " The cost is $" .$row["price"];
 	echo " per window.";
 	echo"<br>";
+	echo"<br>";
 	echo " How many windows do you want? ";
 	echo"<br>";
-	echo " Note: You cannot order more than the Stock Available in the table above ";
+	echo " Note: You cannot order more than the Stock Available in the table above ie ";
 	echo $quantity;
 	echo "<p></p>";
 }
@@ -57,7 +63,6 @@ for ($x = 1; $x <=$quantity; $x++){
 <input type="submit" name="submit" value="Quantity Selected"/>
 
 </form>
-
 
 <br>
 

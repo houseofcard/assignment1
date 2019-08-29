@@ -9,20 +9,11 @@ $_SESSION["id"] = 3;
 $id = $_SESSION["id"]; 
 ?>
 <title>Gothic</title>
-<style>
-th { text-align: left; }
-
-table, th, td {
-border: 2px solid grey;
-    border-collapse: collapse;
-}
-
-th, td {
-padding: 0.2em;
-}
-</style>
+<link rel="stylesheet" href="style_pages.css">
+</head>
+<body>
 <?php
-//Connect page to the database
+// Connect page to the database
 $db_host   = '192.168.2.12';
 $db_name   = 'fvision';
 $db_user   = 'webuser';
@@ -30,16 +21,19 @@ $db_passwd = 'insecure_db_pw';
 $pdo_dsn = "mysql:host=$db_host;dbname=$db_name";
 $pdo = new PDO($pdo_dsn, $db_user, $db_passwd);
 ?>
-</head>
 
-<body>
+<h1>Stained Glass Windows</h1>
 
-<p>This the order page for the Gothic Stained Glass Window</p>
+<h2>Gothic</h2>
+
+<p>This the order page for the Gothic Stained Glass Windows.<p>
 
 <?php
-echo "<img src='images/gothic.jpg'>";
+echo "<figure class='images'><img src='images/gothic.jpg' Width= '200' Height='400' alt='Gothic Window'></figure>";
 ?>
+
 <br>
+<p>Below is a table of available sizes, the price for each size and the current stock available.</p> 
 
 <!-- Table for Available Sizes Gothic Windows-->
 <table border="1">
@@ -49,17 +43,16 @@ echo "<img src='images/gothic.jpg'>";
 $q = $pdo->query("SELECT * FROM typeavailable");
 
 while($row = $q->fetch()){
-  if($row["product_id"]==3){	
-    echo "<tr><td>".$row["product_id"]."</td><td>".$row["id"]."</td><td>".$row["name"]."</td><td>".$row["price"]."</td><td>".$row["stock"]."</td></tr>\n";
-  }
+	if($row["product_id"]==3){	
+		echo "<tr><td>".$row["product_id"]."</td><td>".$row["id"]."</td><td>".$row["name"]."</td><td>".$row["price"]."</td><td>".$row["stock"]."</td></tr>\n";
+	}
 }
 ?>
 </table>
 
 <br>
-
-<!-- Select Size Options Box-->
-<p>Select Size</p>
+<!-- Select Size Options Box -->
+<h2>Select a Size</h2>
 
 <form action="quantity.php" method="post">
 <select name="size">
@@ -67,15 +60,15 @@ while($row = $q->fetch()){
 $q = $pdo->query("SELECT * FROM typeavailable");
 
 while($row = $q->fetch()){
-    if($row["product_id"]==3){	
-       echo "<option value = ".$row["id"].">".$row["name"]."</option>\n";
-    }
+	if($row["product_id"]==3){	
+		 echo "<option value = ".$row["id"].">".$row["name"]."</option>\n";
+	}
 }
+
 ?>
 </select>
- <input type="submit" name="submit" value="Get Selected Value"/>
+<input type="submit" name="submit" value="Select a Size"/>
 </form>
 
 </body>
 </html>
-
