@@ -39,6 +39,8 @@ $pdo = new PDO($pdo_dsn, $db_user, $db_passwd);
 <?php
 echo "<img src='images/gothic.jpg'>";
 ?>
+<br>
+
 <!-- Table for Available Sizes Gothic Windows-->
 <table border="1">
 <tr><th>Window code</th><th>Window Size code</th><th>Size Name</th><th>Price</th><th>Stock Available</th></tr>
